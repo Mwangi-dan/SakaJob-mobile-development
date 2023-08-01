@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+#container {
+    max-height: 45rem;
+    max-width: 100%;
+    background-color: #3D3D3D;
+    max-width: 100%;
+}
+
+.header {
+    height:5rem;
+    max-width: 100%;
+}
+
+/* Positioon the menu to the right of screen */
+header .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    background-color: #3D3D3D;
+    max-width: 100%;
+
+}
+
+
+.menu {
+    font-size: 1.5rem;
+}
+
+
+
+.header .menu a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.5rem;
+    padding-right: 0.6rem;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.header .menu a:hover {
+    color: #debaba;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: .5rem;
+}
+
+.hero-text {
+    width: 40rem;
+    font-size: 2.4rem;
+    margin: 1rem;
+    padding: .5rem;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    text-transform: uppercase;;
+    font-weight: 700;
+}
+
+.hero-image img {
+    z-index: 1;
+    max-width: 100%;
+}
+
+#about-container {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(142, 134, 134, 0.17);
+    max-height: 100%;
+}
+
+.text {
+    justify-content: center;
+    max-width: 60%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+}
+
+.text .title p {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+
+
+.paragraph p{
+    font-size: 2rem;
+}
+
+.about-img img{
+    z-index: 1;
+    max-width: 100%;
+}
+
+.fun-facts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100vw;
+    height: 15rem;
+    justify-content: center;
+
+}
+
+#fun-fact-btn {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#fun-fact-btn:hover {
+    background-color: #3e8e41;
+}
+
+#fun-fact-text {
+    font-size: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#fun-fact-container {
+    display: hidden;
+    color: black;
+}
+
+
+.screen {
+    width: 90vw;
+    margin: 1rem auto;
+    margin-bottom: 1rem;
+}
+
+.description {
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+
+
+.card img {
+    width: 100%;
+    border-radius: 1rem;
+    margin: .3rem;
+    transition: .2s ease-in-out;
+}
+
+.card {
+    columns: 3 12rem;
+    gap: 1rem;
+}
+
+.card img:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+.banner {
+    display: flex;
+    background-color: black;
+    width: 100%;
+    height: 15rem;
+    text-align: center;
+    align-items: center;
+    max-height: 100%;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+    color: white;
+}
+
+.links {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.links h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.links a {
+    margin: 1rem;
+    padding: .5rem;
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+.links a:hover {
+    color: #debaba;
+}
+
+.banner-l {
+    display: flex;
+    background-color: black;
+    width: 100%;
+    max-height: 100%;
+    text-align: center;
+    align-items: center;
+    max-height: 100%;
+}
