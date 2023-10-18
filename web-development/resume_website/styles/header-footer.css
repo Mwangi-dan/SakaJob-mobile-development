@@ -1,0 +1,94 @@
+/* Navigation Bar */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 5rem);
+    list-style: none;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem;
+    transition: border ease-in 0.1s;
+}
+
+.menu li a:hover {
+    border: 2px solid rgb(64, 64, 64);
+    border-radius: 0.3rem;
+}
+
+.active {
+    border: 2px solid rgb(64, 64, 64);
+    background-color: rgb(64, 64, 64);
+    border-radius: 0.3rem;
+    padding: 1rem;
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+}
+
+footer .icon {
+    width: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+footer .icon img {
+    width: 80%;
+    height: auto;
+    border-radius: 0.2rem;
+    border-color: aliceblue;
+}
+
+footer .icon img:hover {
+    opacity: 0.8;
+    color: brown;
+}
+
+/* Media queries */
+@media screen and (min-width: 1200px){
+    body {
+        background-size: cover;
+    }
+}
+
+
+/* Mobile-screen */
+@media screen and (max-width: 380px) {
+    .menu {
+        display: none;
+    }
+
+    .menu-btn {
+        display: inline;
+        margin: 1rem;
+        
+    }
+    
+    footer .icon {
+        width: 1.5rem;
+    }
+
+    /* Activate the menu button in mobile mode  */
+    .menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0.2rem;
+        left: 1.5rem;
+        width: 100%;
+        gap: 1rem;
+    }
+}
+
+
+
