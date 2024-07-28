@@ -1,0 +1,79 @@
+{
+   "checksum": "1a4a03846ad6e60b63e476f4bb9df852",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13172832101034568",
+               "date_last_used": "0",
+               "guid": "7a868a1e-800d-4941-9fae-53b369712013",
+               "id": "8",
+               "name": "Amazon.co.uk – Online Shopping",
+               "show_icon": false,
+               "source": "import_fre",
+               "type": "url",
+               "url": "http://redirect.hp.com/svs/rdr?locale=en_ke&c=142&bd=pavilion&tp=iefavbar&s=amazon&pf=cnnb&TYPE=4"
+            }, {
+               "date_added": "13172832101034568",
+               "date_last_used": "0",
+               "guid": "7d7d1e83-cbf5-40bb-ad5a-4aa9dbf82451",
+               "id": "10",
+               "name": "Priceline.com",
+               "show_icon": false,
+               "source": "import_fre",
+               "type": "url",
+               "url": "http://www.priceline.com/?refid=PLHBC6240OPQ&refclickid=iefav"
+            }, {
+               "date_added": "13172832101034568",
+               "date_last_used": "0",
+               "guid": "179d589d-6ac5-45f8-85e1-19fa57aa1e81",
+               "id": "12",
+               "name": "WildTangent Games for HP",
+               "show_icon": false,
+               "source": "import_fre",
+               "type": "url",
+               "url": "http://redirect.hp.com/svs/rdr?TYPE=4&tp=iefavs&s=myhpgames&pf=cnnb&locale=en-us&bd=all&c=164"
+            } ],
+            "date_added": "13363708430688042",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "3df9ca00-d31a-43b2-8cc4-ae3b9fb53bc7",
+            "id": "7",
+            "name": "HP",
+            "source": "import_fre",
+            "type": "folder"
+         } ],
+         "date_added": "13363708353372468",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Favorites bar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13363708353372473",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13363708353372475",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile favorites",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
