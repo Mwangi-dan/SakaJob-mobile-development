@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 import 'category_listings_page.dart';
+import 'job_service.dart';
 
 class BrowsePage extends StatefulWidget {
   @override
@@ -13,6 +15,13 @@ class _BrowsePageState extends State<BrowsePage> {
   TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
   int _currentIndex = 1;
+  List<String> _categories = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCategories();
+  }
 
   void _updateSearchQuery(String query) {
     setState(() {
@@ -25,12 +34,19 @@ class _BrowsePageState extends State<BrowsePage> {
       _currentIndex = index;
     });
     if (index == 0) {
-      Navigator.pushNamed(context, '/dashboard');
+      Navigator.pushNamed(context, '/');
     } else if (index == 1) {
       Navigator.pushNamed(context, '/browse');
     } else if (index == 2) {
       Navigator.pushNamed(context, '/profile');
     }
+  }
+
+  Future<void> _loadCategories() async {
+    final jobService = Provider.of<JobService>(context, listen: false);
+    _categories = await jobService.getCategories();
+
+    setState(() {});
   }
 
   @override
@@ -141,26 +157,15 @@ class _BrowsePageState extends State<BrowsePage> {
             SizedBox(height: 10),
             Container(
               height: 150,
-              child: StreamBuilder<QuerySnapshot>(
-                stream:
-                    FirebaseFirestore.instance.collection('jobs').snapshots(),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                  var categories = snapshot.data!.docs
-                      .map((doc) => doc['category'] as String)
-                      .toSet()
-                      .toList();
-                  return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) {
-                      return _buildCategoryCard(context, categories[index]);
-                    },
-                  );
-                },
-              ),
+              child: _categories.isEmpty
+                  ? Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: _categories.length,
+                      itemBuilder: (context, index) {
+                        return _buildCategoryCard(context, _categories[index]);
+                      },
+                    ),
             ),
             SizedBox(height: 20),
             Row(

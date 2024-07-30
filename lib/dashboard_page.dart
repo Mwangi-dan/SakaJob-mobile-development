@@ -14,6 +14,14 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   TextEditingController _searchController = TextEditingController();
   int _currentIndex = 0;
+  String _selectedCategory = 'All';
+  List<String> _categories = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCategories();
+  }
 
   void _updateSearchQuery(String query) {
     setState(() {});
@@ -25,7 +33,7 @@ class _DashboardPageState extends State<DashboardPage> {
       _currentIndex = index;
     });
     if (index == 0) {
-      Navigator.pushNamed(context, '/dashboard');
+      Navigator.pushNamed(context, '/');
     } else if (index == 1) {
       Navigator.pushNamed(context, '/browse');
     } else if (index == 2) {
@@ -33,8 +41,22 @@ class _DashboardPageState extends State<DashboardPage> {
     }
   }
 
+  void _applyCategoryFilter(String category) {
+    setState(() {
+      _selectedCategory = category;
+    });
+  }
+
+  Future<void> _loadCategories() async {
+    final jobService = Provider.of<JobService>(context, listen: false);
+    _categories = await jobService.getCategories();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    final jobService = Provider.of<JobService>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
@@ -77,10 +99,7 @@ class _DashboardPageState extends State<DashboardPage> {
               leading: Icon(Icons.view_list),
               title: Text('View applications'),
               onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/coming-soon',
-                );
+                Navigator.pushNamed(context, '/coming-soon');
               },
             ),
             ListTile(
@@ -140,21 +159,32 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                   icon: Icon(Icons.filter_list),
                   label: Text('Filters'),
-                  onPressed: () {
-                    // Handle filter action
-                  },
-                ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text('Employment type'),
-                  onPressed: () {
-                    // Handle employment type action
+                  onPressed: () async {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return ListView(
+                          children: [
+                            ListTile(
+                              title: Text('All'),
+                              onTap: () {
+                                _applyCategoryFilter('All');
+                                Navigator.pop(context);
+                              },
+                            ),
+                            ..._categories.map((category) {
+                              return ListTile(
+                                title: Text(category),
+                                onTap: () {
+                                  _applyCategoryFilter(category);
+                                  Navigator.pop(context);
+                                },
+                              );
+                            }).toList(),
+                          ],
+                        );
+                      },
+                    );
                   },
                 ),
               ],
@@ -162,7 +192,7 @@ class _DashboardPageState extends State<DashboardPage> {
             SizedBox(height: 10),
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: Provider.of<JobService>(context).jobStream,
+                stream: jobService.jobStream,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
@@ -172,7 +202,12 @@ class _DashboardPageState extends State<DashboardPage> {
                     return Center(child: Text('Something went wrong'));
                   }
 
-                  final jobs = snapshot.data?.docs ?? [];
+                  final jobs = snapshot.data?.docs.where((doc) {
+                        final category = doc['category'] as String;
+                        return _selectedCategory == 'All' ||
+                            category == _selectedCategory;
+                      }).toList() ??
+                      [];
 
                   if (jobs.isEmpty) {
                     return Center(child: Text('No jobs available'));

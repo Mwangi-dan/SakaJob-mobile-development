@@ -8,11 +8,18 @@ class JobService with ChangeNotifier {
     return _firestore.collection('jobs').snapshots();
   }
 
+  Future<List<String>> getCategories() async {
+    final snapshot = await _firestore.collection('jobs').get();
+    final categories =
+        snapshot.docs.map((doc) => doc['category'] as String).toSet().toList();
+    return categories;
+  }
+
   Future<void> addJob(Map<String, dynamic> jobData) async {
     try {
       await _firestore.collection('jobs').add(jobData);
     } catch (e) {
-      rethrow;
+      throw e;
     }
   }
 
@@ -20,7 +27,7 @@ class JobService with ChangeNotifier {
     try {
       await _firestore.collection('jobs').doc(jobId).update(jobData);
     } catch (e) {
-      rethrow;
+      throw e;
     }
   }
 

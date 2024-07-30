@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
       _currentIndex = index;
     });
     if (index == 0) {
-      Navigator.pushNamed(context, '/dashboard');
+      Navigator.pushNamed(context, '/');
     } else if (index == 1) {
       Navigator.pushNamed(context, '/browse');
     } else if (index == 2) {
