@@ -78,14 +78,17 @@ class _BrowsePageState extends State<BrowsePage> {
               leading: Icon(Icons.view_list),
               title: Text('View applications'),
               onTap: () {
-                // Handle view applications navigation
+                Navigator.pushNamed(
+                  context,
+                  '/coming-soon',
+                );
               },
             ),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Settings'),
               onTap: () {
-                // Handle settings navigation
+                Navigator.pushNamed(context, '/settings');
               },
             ),
             SizedBox(height: 20), // Use SizedBox to provide space
