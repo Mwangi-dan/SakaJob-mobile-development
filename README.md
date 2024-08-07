@@ -21,4 +21,4 @@ To watch the demo video, click on the links below:
 
 ## Build APK File
 Here is the link to the build.apk file of the app:
-- [Buils.apk file](https://drive.google.com/file/d/1GSvSePy9ux2QYRp6MsVWb9jpcc2VCjlr/view?usp=drive_link)
+- [Build.apk file](https://drive.google.com/file/d/1GSvSePy9ux2QYRp6MsVWb9jpcc2VCjlr/view?usp=drive_link)
