@@ -18,3 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Videos link
 To watch the demo video, click on the links below:
 - [Front-end implementation](https://drive.google.com/file/d/1P8JG5_qirQs0Mobj_j5-W4eNkyUvYSUi/view?usp=sharing)
+
+## Build APK File
+Here is the link to the build.apk file of the app:
+- [Buils.apk file](https://drive.google.com/file/d/1GSvSePy9ux2QYRp6MsVWb9jpcc2VCjlr/view?usp=drive_link)
